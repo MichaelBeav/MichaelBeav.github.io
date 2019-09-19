@@ -21,7 +21,9 @@ body {
   margin: 0;
   background-color: #272822;
 }
-
+li {
+    margin-top: 0.7em;
+}
 pre, code {
   font-family: "Fira Code", "SFMono-Regular", Consolas, "Roboto Mono",
     "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
@@ -99,19 +101,6 @@ a {
     color: #F92672;
 }
 
-.mainMenu {
-  margin: 0;
-  padding: 0;
-}
-
-.mainMenu__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
 @media (max-width: 600px) {
   body {
     font-size: 110%;
@@ -154,23 +143,18 @@ a {
   margin: 0;
 }
 
-
-.postList__item {
-  padding: 0;
-  margin-bottom: 2.8em;
-}
-
-
-.postSummary__date {
-  /*
-  color: ${theme.date}
-  */
-
-}
-
 .postSummary__summary {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
+}
+.string {
+  color: #E6DB74;
+}
+.keyword {
+    color: #F92672;
+}
+.var {
+    color: #FFF;
 }
 
 .bio__header {
@@ -204,12 +188,12 @@ a {
 .decoratedLink {
   text-decoration: none;
   cursor: pointer;
-  /* background-color: #168DCF;*/
   background-color: #A6E22E;
   color: #002b36;
   margin-top: 1.2em;
   padding-top: 2px;
   padding-bottom: 2px;
+  padding-left: 2px;
 }
 
 .decoratedLink:focus .decoratedLink__text,
@@ -218,9 +202,6 @@ a {
 }
 
 .decoratedLink__decoration {
-  /*
-   * color: ${theme.text};
-   */
   user-select: none;
   text-decoration: none;
 }
@@ -229,66 +210,6 @@ a {
   margin-right: 1em;
   margin-left: 1em;
   color: #002b36;
-  /*
-  color: ${theme.link};
-  */
-}
-
-.postContent li + li {
-  margin-top: 0.7em;
-}
-
-.postContent ul {
-  padding: 0;
-}
-
-.postContent ul ul {
-  padding-left: 1.2em;
-}
-
-.postContent h1,
-.postContent h2,
-.postContent h3,
-.postContent h4 {
-  font-size: 1em;
-  font-weight: normal;
-  margin-top: 2.2em;
-  margin-bottom: 1em;
-  position: relative;
-  color: #2aa198; /*cb4b16;*/
-}
-
-.postContent h1:before,
-.postContent h2:before,
-.postContent h3:before,
-.postContent h4:before {
-  color: #073642;
-  position: absolute;
-  text-align: right;
-  left: -2.5em;
-  width: 2em;
-  top: 0;
-}
-
-.postContent h1:before {
-  content: '#';
-}
-
-.postContent h2:before {
-  content: '##';
-}
-
-.postContent h3:before {
-  content: '###';
-}
-
-.postContent h4:before {
-  content: '####';
-}
-
-.postContent strong {
-  color: #d33682;
-  font-weight: normal;
 }
 
 .logo {
@@ -301,170 +222,200 @@ code {
   padding-left: 4px;
   padding-right: 4px;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted white;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 </style>
+
+<header class="header"><a style="color:#93A1A1;" href="#"><pre>
+!#/usr/bin/env 
+
+<span class="keyword">import</span> <span class="var">profile</span>
+<span class="keyword">import</span> <span class="var">experience</span>
+<span class="keyword">import</span> <span class="var">education</span>
+</pre></a></header>
+
 <div class="page">
 <div id="l1" class="titleFrame"><h1 class="titleText _withAccent">Michael Beschastnov</h1></div>
 <section class="pageContent">
     <ul class="postList">
         <li class="postLlist__item">
             <header class="bio__header">main()</header>
-            <summary class="postSummary__summary">I have hands-on engineering experience, worked with different tech stacks, teams across the globe, in-house and outsourced development teams. Worked with clients from all regions and cultures: US, JP, EU, APAC. Was selected by the power of AI to participate in Google foobar challenge.
-At IPONWEB we develop custom Real Time Bidding platforms for ad tech companies. Platforms we manage process hundreds of billions of requests every day. We deal with petabytes of data. Ad serving applications make complex decisions in milliseconds. I act as both Engineering and People manager making products from code.
-At Rambler/Begun we developed biggest in Russia at the time contextual advertising network. Hundreds of servers served ads on inventory covering all the internet audience of the country. Starting as an Engineer I made my way to Project Management.
-</summary>
-            <span id="message-1" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-            <span id="enough-1" class="decoratedLink" onclick="showContacts(this.id)">I need you!</span>
-            <div id="respond-1" style="display:none;">
-                <header class="bio__header2">Experience</header>
-                <header class="bio__header3">HEAD OF PROJECT MANAGEMENT, IPONWEB.COM — 2016-PRESENT</header> As a head of Project Management in matrix structured company I am responsible for people management, hiring, professional development, projects delivery support. 
-<ul><li>I re-developed on-boarding and training processes and set up inter-department transfer practice to decrease attrition rate in the team by a factor of 2. </li>
-<li>Established connection with best Computer Science universities and initiated an internship program. </li>
-<li>Established relations with local PMI chapter, developed certification training program and managed team certification with success rate 100%. </li>
-<li>Developed new Project Management org structure in order to support growth of the company and increasing complexity of projects we deliver. </li>
-<li>Established cross-team collaboration to improve software development processes and decrease delays in delivery. My team has grown from 15 to 40 PMs. </li>
-<li>At the same time kicked off and led the establishment of several strategic internal and client projects. </li></ul>
-<div id="message-2-div" class="moreButton"><span id="message-2" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span></div>
+            <summary class="postSummary__summary">I am a top-class leader with 9 years of management experience and hands-on engineering background. Worked with tech stacks from bash and perl to angular and vue, managed teams across the globe, in-house and outsourced development teams. Have vast experience working with clients from all regions and cultures: US, JP, EU, APAC. Was selected by the power of AI to participate in Google foobar challenge.<br>
+            Last 12 years I spent working at <span class="tooltip">IPONWEB<span class="tooltiptext">Here we develop custom Real Time Bidding platforms for ad tech companies. Platforms we manage process hundreds of billions of requests every day. We deal with petabytes of data. Ad serving applications make complex decisions in milliseconds.</span></span> where I have senior management and leadership position and 
+            at <span class="tooltip">Rambler/Begun<span class="tooltiptext">Biggest in Russia at the time contextual advertising network. Hundreds of servers served ads on inventory covering all the internet audience of the country.</span></span> starting as an Engineer I made my way to Project Management.<br>
+             I act as both Engineering and People manager making products from code.
+            </summary>
+            Here you can find more about what I've been doing:<br><br>
+            <span id="message-1" class="decoratedLink" onclick="showExperience('iponweb')">Tell me IPONWEB!</span>
+            <span id="message-1" class="decoratedLink" onclick="showExperience('rambler')">Rambler I want!</span>
+            <span id="message-1" class="decoratedLink" onclick="showExperience('education')">But college?</span>
+            <span id="enough-1" class="decoratedLink" onclick="showExperience('contacts')">I need you!</span>
 
-</div>
-</li>
-<li>
-<div id="respond-2" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">SENIOR PRODUCT MANAGER, IPONWEB.COM — 2014-2016</header> I led the development of new bidding optimisation engine. The most complex engine company ever built. I was involved and led all activities related to the product: from multi-dimensional optimisation algorithms research to product marketing and sales. Regularly participated in pre-sales activities presenting optimisation engine and platform tech stack. 
-<ul><li>Led migration of all existing projects from legacy bidding engine to modern. </li>
-<li>Successfully managed migration to new budget API and significantly decreased time and effort required for new pricing model implementation. </li>
-<li>Delivered multiple trainings to existing clients to boost adaptation of our solution and increase the level of satisfaction across ad-ops and campaign manager teams. </li>
-<li>Trained new clients during on-boarding stage, participated in kick-off meetings. </li></ul>
-<div id="message-3-div" class="moreButton"><span id="message-3" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-<li>
-<div id="respond-3" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">SENIOR PROJECT MANAGER, IPONWEB.COM — 2012-2014</header> Led key accounts of the company on both Demand and Supply sides. Was responsible for accounts growth, quality of solutions we deliver, quality of day to day support. 
-Had leading role in migration of existing direct RTB integrations to openRTB protocol and later to Bidswitch.  Was evangelist of new buying strategies, worked closely with R&D department to improve the quality of budget allocation. 
-<ul><li>Led process improvement team consisting of engineering team leads to improve quality of releases and changes. </li>
-<li>Developed new procedure of predict model releases which produced 0 postmortems after implementation. </li>
-<li>Resolved one of the biggest postmortems in company’s history with increase of overall customer satisfaction, multiple formal thank you letters from the C-level management and client staying with us for years after the incident. </li></ul>
-<div id="message-4-div" class="moreButton"><span id="message-4" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-<li>
-<div id="respond-4" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">TECHNICAL PROJECT MANAGER, IPONWEB.COM — 2011-2012</header> Managed several SSP projects on APAC and US markets. Successfully managed migration from legacy client stacks to IPONWEB platform which resulted in incremental increase of revenue for the company. Managed backend development of these platforms. 
-<ul><li>Managed rollout of new budget server on multiple installations, decreased number of budget overspent cases significantly which had direct positive impact on client’s profits.</li></ul>
-<div id="message-5-div" class="moreButton"><span id="message-5" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-<li>
-<div id="respond-5" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">TECHNICAL PROJECT MANAGER, RAMBLER/BEGUN.RU — 2010-2011</header> As a Project Manager led development of client facing and admin parts of UI, led the development of billing system processing millions of transactions every day. 
-<ul><li>Delivered one of the biggest projects related to billing which increased the company's annual profit by 5%</li></ul>
-
-<div id="message-6-div" class="moreButton"><span id="message-6" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-<li>
-<div id="respond-6" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">ENGINEER, PUBLISHER SERVICE AND ANTI-FRAUD DEPARTMENT, RAMBLER/BEGUN.RU — 2009-2010</header> As an engineer of Publisher Service was responsible for quality of inventory sold in the Ad Network, worked directly with publishers on tag implementation issues, was 3rd line of support for advertisers on cases required complex technical analysis. 
-<ul><li>Developed set of automation tools with bash, MySQL and php that decreased effort required to process budget spent related support requests. Time required to resolve such issues decreased from days to 1 hour.</li></ul>
-<div id="message-7-div" class="moreButton"><span id="message-7" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-<li>
-<div id="respond-7" style="display:none;"><header class="bio__header2">Experience</header><header class="bio__header3">OPERATIONS ENGINEER, RAMBLER/BEGUN.RU — 2008-2009</header> Ops engineering team was responsible for maintenance and change management of 400 bare metal instances running linux. Our stack included perl for change management automation, zabbix as a monitoring tool, php+MySQL in Zabbix plugin system. 
-<ul><li>Developed set of Zabbix plugins with bash and perl that decreased time to reaction for most of the monitoring alerts to 1 minute. </li>
-<li>Improved change management tools to decrease the number of manual actions required to update http serving daemon, update process time decreased 3 times.</li>
-</ul>
-<div id="message-8-div" class="moreButton"><span id="message-8" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
+<div id="iponweb-1" style="display:none;">
+    <header class="bio__header2">Experience.IPONWEB():</header>
+    <header class="bio__header3">HEAD OF PROJECT MANAGEMENT, IPONWEB.COM — 2016-PRESENT</header> 
+    As a head of Project Management in matrix structured company I am responsible for people management, hiring, professional development, projects delivery support. 
+    <ul>
+        <li>I re-developed on-boarding and training processes and set up inter-department transfer practice to decrease attrition rate in the team by a factor of 2. </li>
+        <li>Established connection with best Computer Science universities and initiated an internship program. </li>
+        <li>Established relations with local PMI chapter, developed certification training program and managed team certification with success rate 100%. </li>
+        <li>Developed new Project Management org structure in order to support growth of the company and increasing complexity of projects we deliver. </li>
+        <li>Established cross-team collaboration to improve software development processes and decrease delays in delivery. My team has grown from 15 to 40 PMs. </li>
+        <li>At the same time kicked off and led the establishment of several strategic internal and client projects. </li>
+    </ul>
 </div>
 </li>
 
 <li>
-<div id="respond-8" style="display:none;"><header class="bio__header2">Education</header><ul><li class="ed__header2">Stanford University, Online course CS101, Computer Science 101, 2019</li>
-    <li class="ed__header2">Coursera online course, Databases, 2013 </li>
-    <li class="ed__header2">Bauman Moscow State Technical University, Project Management onsite course, 2011</li>
-    <li class="ed__header2">Bauman Moscow State Technical University, Linux/Unix onsite course, 2009 </li>
-    <li class="ed__header2">Moscow Technical University of Communications and Informatics, Degree: Master of Engineering, Thesis: “Design of network with enhanced data rates for GSM evolution for the Krasnodar region area”, 2003-2008 </li>
-</ul>
-
-<div id="message-9-div" class="moreButton"><span id="message-9" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
-</div>
-</li>
-
-<li>
-<div id="respond-9" style="display:none;"><header class="bio__header2">And I have personal projects</header><ul><li class="ed__header2">Have invitation to Google foobar challenge </li>
-    <li class="ed__header2">Code Podcast - podcast about programming and engineering. <a href="https://codepodcast.com/about">codepodcast.com</a> 2016 - 2018 
-</li>
-    <li class="ed__header2">Had 2 consulting projects on “Establishing Project Management organisation” topic</li>
-    <li class="ed__header2">Was part of IAB OpenRTB (universal protocol for Real Time Bidding) protocol review group in 2012-2013  </li>
-</ul>
-
-<div id="message-10-div" class="moreButton"><span id="message-10" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
-</div>
+<div id="iponweb-2" style="display:none;"><!--<header class="bio__header2">Experience</header>-->
+    <header class="bio__header3">SENIOR PRODUCT MANAGER, IPONWEB.COM — 2014-2016</header> 
+    I led the development of new bidding optimisation engine. The most complex engine company ever built. I was involved and led all activities related to the product: from multi-dimensional optimisation algorithms research to product marketing and sales. Regularly participated in pre-sales activities presenting optimisation engine and platform tech stack. 
+    <ul>
+        <li>Led migration of all existing projects from legacy bidding engine to modern. </li>
+        <li>Successfully managed migration to new budget API and significantly decreased time and effort required for new pricing model implementation. </li>
+        <li>Delivered multiple trainings to existing clients to boost adaptation of our solution and increase the level of satisfaction across ad-ops and campaign manager teams. </li>
+        <li>Trained new clients during on-boarding stage, participated in kick-off meetings. </li>
+    </ul>
 </div>
 </li>
 
 <li>
-<div id="respond-10" style="display:none;"><header class="bio__header2">You can contact me by</header>
+<div id="iponweb-3" style="display:none;"><!--<header class="bio__header2">Experience</header>-->
+    <header class="bio__header3">SENIOR PROJECT MANAGER, IPONWEB.COM — 2012-2014</header> 
+    Led key accounts of the company on both Demand and Supply sides. Was responsible for accounts growth, quality of solutions we deliver, quality of day to day support. <br>
+    Had leading role in migration of existing direct RTB integrations to openRTB protocol and later to Bidswitch.  Was evangelist of new buying strategies, worked closely with R&D department to improve the quality of budget allocation. 
+    <ul>
+        <li>Led process improvement team consisting of engineering team leads to improve quality of releases and changes. </li>
+        <li>Developed new procedure of predict model releases which produced 0 postmortems after implementation. </li>
+        <li>Resolved one of the biggest postmortems in company’s history with increase of overall customer satisfaction, multiple formal thank you letters from the C-level management and client staying with us for years after the incident. </li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="iponweb-4" style="display:none;"><!--<header class="bio__header2">Experience</header>-->
+    <header class="bio__header3">TECHNICAL PROJECT MANAGER, IPONWEB.COM — 2011-2012</header> 
+    Managed several SSP projects on APAC and US markets. Successfully managed migration from legacy client stacks to IPONWEB platform which resulted in incremental increase of revenue for the company. Managed backend development of these platforms. 
+    <ul>
+        <li>Managed rollout of new budget server on multiple installations, decreased number of budget overspent cases significantly which had direct positive impact on client’s profits.</li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="rambler-1" style="display:none;"><header class="bio__header2">Experience.Rambler():</header>
+    <header class="bio__header3">TECHNICAL PROJECT MANAGER, RAMBLER/BEGUN.RU — 2010-2011</header> 
+    As a Project Manager led development of client facing and admin parts of UI, led the development of billing system processing millions of transactions every day. 
+    <ul>
+        <li>Delivered one of the biggest projects related to billing which increased the company's annual profit by 5%</li>
+        <li>Became the PM of choice for all non-standard and development heavy projects</li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="rambler-2" style="display:none;"><!--<header class="bio__header2">Experience</header>-->
+    <header class="bio__header3">ENGINEER, PUBLISHER SERVICE AND ANTI-FRAUD DEPARTMENT, RAMBLER/BEGUN.RU — 2009-2010</header>
+     As an engineer of Publisher Service was responsible for quality of inventory sold in the Ad Network, worked directly with publishers on tag implementation issues, was 3rd line of support for advertisers on cases required complex technical analysis. 
+    <ul>
+        <li>Developed set of automation tools with bash, MySQL and php that decreased effort required to process budget spent related support requests. Time required to resolve such issues decreased from days to 1 hour.</li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="rambler-3" style="display:none;"><!--<header class="bio__header2">Experience</header>-->
+    <header class="bio__header3">OPERATIONS ENGINEER, RAMBLER/BEGUN.RU — 2008-2009</header> 
+    Ops engineering team was responsible for maintenance and change management of 400 bare metal instances running linux. Our stack included perl for change management automation, zabbix as a monitoring tool, php+MySQL in Zabbix plugin system. 
+    <ul>
+        <li>Developed set of Zabbix plugins with bash and perl that decreased time to reaction for most of the monitoring alerts to 1 minute. </li>
+        <li>Improved change management tools to decrease the number of manual actions required to update http serving daemon, update process time decreased 3 times.</li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="education-1" style="display:none;"><header class="bio__header2">Education():</header>
+    <ul>
+        <li >Stanford University, Online course CS101, Computer Science 101, 2019</li>
+        <li>Coursera online course, Databases, 2013 </li>
+        <li>Bauman Moscow State Technical University, Project Management onsite course, 2011</li>
+        <li>Bauman Moscow State Technical University, Linux/Unix onsite course, 2009 </li>
+        <li>Moscow Technical University of Communications and Informatics, Degree: Master of Engineering, Thesis: “Design of network with enhanced data rates for GSM evolution for the Krasnodar region area”, 2008 </li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="education-2" style="display:none;"><header class="bio__header2">And I have personal projects</header>
+    <ul>
+        <li>Have invitation to Google foobar challenge </li>
+        <li>Code Podcast - podcast about programming and engineering. <a href="https://codepodcast.com/about">codepodcast.com</a> 2016 - 2018</li>
+        <li>Had 2 consulting projects on “Establishing Project Management organisation” topic</li>
+        <li>Was part of IAB OpenRTB (universal protocol for Real Time Bidding) protocol review group in 2012-2013  </li>
+    </ul>
+</div>
+</li>
+
+<li>
+<div id="contacts-1" style="display:none;"><header class="bio__header2">You can contact me by</header>
 e-mail <a href="mailto:michael@doitwise.net">michael@doitwise.net</a> if you prefer click sound of keyboard or give me a call by
-<a href="tel:+79262654035">+7 9262654035</a> if you feel comfortable talking to strangers.
-<!--<div id="message-10-div" class="moreButton"><span id="message-10" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
+<a href="tel:+79262654035">+7 9262654035</a> if you feel comfortable talking to strangers. <br>
+Or send me a message if you prefer any other way of communication.
+<!--<div id="message-11-div" class="moreButton"><span id="message-10" class="decoratedLink" onclick="showresponddiv(this.id)">Tell me more!</span>
 </div>-->
 </div>
 </li>
 
-</div>
 </ul>
 </section>
+</div>
 <footer class="footer"><a style="color:#93A1A1;" href="#"><pre>
-  _ __ | |__ 
- | '  \| '_ \
- |_|_|_|_.__/
+
+Uh-oh, forgot how to contact me? 
 </pre></a></footer>
 
-<script type="text/javascript">var current = null;
-
-function showresponddiv(messagedivid){
-    var id = messagedivid.replace("message-", "respond-"),
-        originalDiv = document.getElementById(messagedivid),
-        div = document.getElementById(id);
-
-    // hide previous one
-    if(current && current != div) {
-        current.style.display =  'none';
-    }   
-
-    if (div.style.display=="none"){
-        div.style.class="postSummary__summary";
-        div.style.display="block";
-        originalDiv.style.display="none";
-        current = div;
-    } 
-    else {
-        div.style.display="none";
-    }
+<script type="text/javascript">
+function showExperience(displayExp){
+var divs = document.getElementsByTagName('div');
+    console.log(divs);
+    for (var i = 0; i < divs.length; i++) {
+        console.log(divs[i].getAttribute('class'))
+        if (divs[i].getAttribute('class') == "page" || divs[i].getAttribute('class') == "titleFrame"){ 
+        continue;
+        };
+        var divId = divs[i].getAttribute('id');
+        console.log(divId)
+        if (divId.indexOf(displayExp) >= 0){
+            divs[i].style.display = 'block';
+        }
+        
+        else{
+            divs[i].style.display = 'none';
+        }
+    }  
 }
-function showContacts(messagedivid){
-    var id = "respond-10",
-        originalDiv = document.getElementById(messagedivid),
-        div = document.getElementById(id);
 
-    // hide previous one
-    if(current && current != div) {
-        current.style.display =  'none';
-    }   
-
-    if (div.style.display=="none"){
-        div.style.class="postSummary__summary";
-        div.style.display="block";
-        originalDiv.style.display="none";
-        current = div;
-    } 
-    else {
-        div.style.display="none";
-    }
-}
 
 </script>
 </html>
